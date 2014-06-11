@@ -4,10 +4,18 @@ class TM::Project
   attr_accessor :tasks
   @@counter = 0
   @@tasks = []
+
+  @@projects = []
+
+  def self.projects
+    @@projects
+  end
+
   def initialize name
     @name = name
     @id = @@counter
     @@counter += 1
+    @@projects << self
   end
 
   # def

@@ -1,5 +1,10 @@
 require 'spec_helper'
 
+# before(:each) do
+#   TM::Project.class_variable_set :@@counter, 0
+# end
+
+
 describe 'Project' do
   let(:klass  ) { TM::Project }
   let(:name   ) { "example" }

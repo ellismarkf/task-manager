@@ -5,8 +5,9 @@ describe 'Task' do
   let(:description ) { "write code" }
   let(:is_complete ) { false }
   let(:priority    ) { 0 }
-  let(:task        ) { klass.new(id, description, priority, is_complete) }
+  let(:task        ) { klass.new(project_id, description, priority) }
   let(:id          ) { 1 }
+  let(:project_id  ) { 1 }
 
   # before each do
   #   task = TM::Task.new()
@@ -25,4 +26,17 @@ describe 'Task' do
     task.complete(1)
     expect(task.is_complete).to eq(true)
   end
+
+  # it "returns all tasks" do
+  #   task
+  #   task
+  #   task
+  #   expect()
+  # end
+
+  it "can be added to project by id" do
+    TM::Task.add_to_project(1)
+    expect(Task.dock.size).to eq(1)
+  end
+
 end

@@ -17,4 +17,25 @@ describe 'Project' do
     expect(project.id).to eq(1)
   end
 
+  # it "can add tasks to a project id" do
+
+  # end
+
+  it "can list all completed tasks" do
+    project
+    project_id = project.id
+
+    task1 = TM::Task.new(project_id, "task1", 1)
+    task2 = TM::Task.new(project_id, "task2", 2)
+    task3 = TM::Task.new(project_id, "task3", 1)
+
+    task1.complete
+    task3.complete
+
+    array = [task1, task3]
+
+    expect(project.get_completed_tasks).to eq(array)
+
+  end
+
 end

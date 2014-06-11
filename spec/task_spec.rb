@@ -23,7 +23,7 @@ describe 'Task' do
   end
 
   it "can be marked as complete" do
-    task.complete(1)
+    task.complete
     expect(task.is_complete).to eq(true)
   end
 

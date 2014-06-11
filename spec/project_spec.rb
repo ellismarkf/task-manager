@@ -69,7 +69,7 @@ describe 'Project' do
     Time.stub(:now).and_return(Time.parse("June 11 2014"))
     task5 = TM::Task.new(project_id, "task5", 4)
 
-    array = [task1, task2, task3, task4, task5]
+    array = [task4, task5, task3, task2, task1]
 
     expect(project.get_incomplete_tasks).to eq(array)
   end

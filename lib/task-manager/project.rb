@@ -23,7 +23,6 @@ class TM::Project
       end
     end
     list.sort {|x, y| x.date_created <=> y.date_created}
-    list
   end
 
   def get_incomplete_tasks
@@ -35,7 +34,7 @@ class TM::Project
         end
       end
     end
-    list.sort {|x, y| y.priority <=> x.priority}
+    list.sort {|x, y| [y.priority, x.date_created] <=> [x.priority, y.date_created]}
   end
 
 end

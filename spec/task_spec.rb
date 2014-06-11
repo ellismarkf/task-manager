@@ -34,9 +34,9 @@ describe 'Task' do
   #   expect()
   # end
 
-  it "can be added to project by id" do
-    TM::Task.add_to_project(1)
-    expect(Task.dock.size).to eq(1)
-  end
+  # it "can be added to project by id" do
+  #   TM::Task.add_to_project(1)
+  #   expect(Task.dock.size).to eq(1)
+  # end
 
 end

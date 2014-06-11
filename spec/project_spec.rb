@@ -38,4 +38,18 @@ describe 'Project' do
 
   end
 
+  it "can list all incomplete tasks sorted by priority number" do
+    project
+    project_id = project.id
+
+    task1 = TM::Task.new(project_id, "task1", 1)
+    task2 = TM::Task.new(project_id, "task2", 2)
+    task3 = TM::Task.new(project_id, "task3", 3)
+    task4 = TM::Task.new(project_id, "task4", 4)
+
+    array = [task4, task3, task2, task1]
+
+    expect(project.get_incomplete_tasks).to eq(array)
+  end
+
 end

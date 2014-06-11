@@ -26,5 +26,17 @@ class TM::Project
 
   end
 
+  def get_incomplete_tasks
+    list = []
+    TM::Task.dock.each do |task|
+      if task.project_id == @id
+        if task.is_complete == false
+          list << task
+        end
+      end
+    end
+    list.sort {|x, y| y.priority <=> x.priority}
+  end
+
 end
 

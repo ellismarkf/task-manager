@@ -1,7 +1,7 @@
 
 class TM::Task
 
-  attr_reader :id, :description, :project_id
+  attr_reader :id, :description, :project_id, :date_created
   attr_accessor :is_complete, :priority, :dock
 
   @@counter = 0
@@ -18,6 +18,7 @@ class TM::Task
     @project_id = project_id
     @@dock << self
     @is_complete = false
+    @date_created = Time.now
   end
 
   def complete

@@ -25,14 +25,26 @@ describe 'Project' do
     project
     project_id = project.id
 
+    Time.stub(:now).and_return(Time.parse("June 7 2014"))
     task1 = TM::Task.new(project_id, "task1", 1)
+
+    Time.stub(:now).and_return(Time.parse("June 8 2014"))
     task2 = TM::Task.new(project_id, "task2", 2)
-    task3 = TM::Task.new(project_id, "task3", 1)
+
+    Time.stub(:now).and_return(Time.parse("June 9 2014"))
+    task3 = TM::Task.new(project_id, "task3", 3)
+
+    Time.stub(:now).and_return(Time.parse("June 10 2014"))
+    task4 = TM::Task.new(project_id, "task4", 4)
+
+    Time.stub(:now).and_return(Time.parse("June 11 2014"))
+    task5 = TM::Task.new(project_id, "task5", 4)
 
     task1.complete
     task3.complete
+    task5.complete
 
-    array = [task1, task3]
+    array = [task1, task3, task5]
 
     expect(project.get_completed_tasks).to eq(array)
 
@@ -42,12 +54,22 @@ describe 'Project' do
     project
     project_id = project.id
 
+    Time.stub(:now).and_return(Time.parse("June 7 2014"))
     task1 = TM::Task.new(project_id, "task1", 1)
+
+    Time.stub(:now).and_return(Time.parse("June 8 2014"))
     task2 = TM::Task.new(project_id, "task2", 2)
+
+    Time.stub(:now).and_return(Time.parse("June 9 2014"))
     task3 = TM::Task.new(project_id, "task3", 3)
+
+    Time.stub(:now).and_return(Time.parse("June 10 2014"))
     task4 = TM::Task.new(project_id, "task4", 4)
 
-    array = [task4, task3, task2, task1]
+    Time.stub(:now).and_return(Time.parse("June 11 2014"))
+    task5 = TM::Task.new(project_id, "task5", 4)
+
+    array = [task1, task2, task3, task4, task5]
 
     expect(project.get_incomplete_tasks).to eq(array)
   end

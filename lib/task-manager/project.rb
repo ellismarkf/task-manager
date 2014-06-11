@@ -22,8 +22,8 @@ class TM::Project
         end
       end
     end
+    list.sort {|x, y| x.date_created <=> y.date_created}
     list
-
   end
 
   def get_incomplete_tasks

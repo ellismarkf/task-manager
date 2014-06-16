@@ -23,4 +23,4 @@ TM::Client.cmds.each do |cmd, desc|
   puts "   #{cmd.to_s.gsub(/_/, ' ')} - #{desc}"
 end
 
-# TM::Client.run
+TM::Client.run

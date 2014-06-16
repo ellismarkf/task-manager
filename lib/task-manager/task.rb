@@ -11,7 +11,7 @@ class TM::Task
     @@dock
   end
 
-  def initialize project_id, description, priority = 0
+  def initialize project_id, priority = 0, description
     @id = @@counter += 1
     @description = description
     @priority = priority

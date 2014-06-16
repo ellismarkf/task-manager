@@ -42,7 +42,10 @@ class TM::Project
         end
       end
     end
-    list.sort {|x, y| [y.priority, x.date_created] <=> [x.priority, y.date_created]}
+    sorted = list.sort {|x, y| [y.priority, x.date_created] <=> [x.priority, y.date_created]}
+    sorted.each do |task|
+      puts "Task #{task.id}: #{task.description}"
+    end
   end
 
 end
